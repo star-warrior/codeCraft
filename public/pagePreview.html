@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preview</title>
+    <style id="custom-style"></style>
+  </head>
+  <body>
+    <div id="preview-root"></div>
+    <script>
+      window.addEventListener("message", (e) => {
+        const { html, css, js } = e.data;
+
+        // Only process if we have actual data
+        if (html !== undefined || css !== undefined || js !== undefined) {
+          console.log("Message received:", { html, css, js });
+
+          // Apply CSS
+          const styleElement = document.getElementById("custom-style");
+          styleElement.innerHTML = css || "";
+          console.log("CSS applied:", css);
+
+          // Apply HTML
+          const previewRoot = document.getElementById("preview-root");
+          previewRoot.innerHTML = html || "";
+          console.log("HTML applied:", html);
+
+          // Remove any existing custom scripts
+          const existingScripts = document.querySelectorAll(
+            "script[data-custom]"
+          );
+          existingScripts.forEach((script) => script.remove());
+
+          // Apply JavaScript
+          if (js) {
+            try {
+              const script = document.createElement("script");
+              script.type = "text/javascript";
+              script.setAttribute("data-custom", "true");
+              script.innerHTML = js;
+              document.body.appendChild(script);
+              console.log("JS applied:", js);
+            } catch (error) {
+              console.error("JS Error:", error);
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
