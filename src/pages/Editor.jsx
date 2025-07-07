@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import CodeBox from "../components/CodeBox";
 import Output from "../components/Output";
@@ -8,9 +8,11 @@ function Editor() {
   const [cssCode, setCssCode] = React.useState("");
   const [jsCode, setJsCode] = React.useState("");
 
+  const [theme, setTheme] = useState("theme1");
+
   return (
     <div>
-      <Navbar />
+      <Navbar setTheme={setTheme} theme={theme} />
 
       <div className="flex flex-row justify-center align-middle">
         <CodeBox
@@ -19,6 +21,7 @@ function Editor() {
           code={htmlCode}
           setCode={setHtmlCode}
           defLang="html"
+          theme={theme}
         />
         <CodeBox
           lang="CSS"
@@ -26,6 +29,7 @@ function Editor() {
           code={cssCode}
           setCode={setCssCode}
           defLang="css"
+          theme={theme}
         />
         <CodeBox
           lang="JS"
@@ -33,6 +37,7 @@ function Editor() {
           code={jsCode}
           setCode={setJsCode}
           defLang="javascript"
+          theme={theme}
         />
       </div>
       <Output html={htmlCode} css={cssCode} js={jsCode} />

@@ -1,80 +1,82 @@
 import React from "react";
 
-function Navbar() {
-  function closeMobileMenu() {
-    const mobileMenu = document.getElementById("mobile-menu");
-    mobileMenu.classList.toggle("hidden");
+function Navbar({ setTheme }) {
+  const [displayTheme, setDisplayTheme] = React.useState("theme1");
+  function handleThemeChange(e, currentTheme) {
+    e.preventDefault();
+    setTheme(currentTheme);
+    setDisplayTheme(e.target.innerText);
+    console.log(`Theme changed to: ${currentTheme}`);
   }
 
   const logoText = "</>";
 
   return (
     <nav className="bg-gray-700 shadow-md border-b-2 border-gray-500">
-      <div className="max-w-7xl mx-auto px-3 py-2 sm:px-6 lg:px-8">
+      <div className="w-full mx-3 px-3 py-2 sm:px-6 lg:px-8">
         <div className="flex justify-between h-12">
           <div className="flex items-center gap-2">
             <span className="text-xl font-bold text-blue-400">
               {" "}
               {logoText}{" "}
             </span>
-            <span className="text-2xl font-bold text-white"> CodeCrafty</span>
+            <span className="text-xl font-bold text-white"> CodeCrafty</span>
           </div>
 
-          <div className="hidden md:flex items-center space-x-6">
-            <a href="#" className="text-gray-200 hover:text-blue-400">
-              Home
-            </a>
-            <a href="#" className="text-gray-200 hover:text-blue-400">
-              About
-            </a>
-            <a href="#" className="text-gray-200 hover:text-blue-400">
-              Services
-            </a>
-            <a href="#" className="text-gray-200 hover:text-blue-400">
-              Contact
-            </a>
-          </div>
-
-          <div className="md:hidden flex items-center">
-            <button
-              id="menu-btn"
-              className="text-gray-200 hover:text-blue-400 focus:outline-none"
-              onClick={closeMobileMenu}
-            >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+          <div className="relative inline-block text-left group">
+            <button className=" text-white px-4 py-2 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+              {displayTheme || "Select Theme"}
             </button>
+
+            <div className="absolute hidden group-hover:block mt-2 w-40 bg-white border rounded-md shadow-lg z-10">
+              <button
+                href="#"
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                onClick={(e) => {
+                  handleThemeChange(e, "atomOneDark");
+                }}
+              >
+                Atom One Dark
+              </button>
+              <button
+                href="#"
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                onClick={(e) => {
+                  handleThemeChange(e, "tokyoNightStorm");
+                }}
+              >
+                Tokyo Night Storm
+              </button>
+              <button
+                href="#"
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                onClick={(e) => {
+                  handleThemeChange(e, "tokyoNight");
+                }}
+              >
+                Tokyo Night
+              </button>
+              <button
+                href="#"
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                onClick={(e) => {
+                  handleThemeChange(e, "dracula");
+                }}
+              >
+                Dracula
+              </button>
+              <button
+                href="#"
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                onClick={(e) => {
+                  handleThemeChange(e, "theme1");
+                }}
+              >
+                Default
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div
-        id="mobile-menu"
-        className="md:hidden hidden px-4 pt-2 pb-4 space-y-2"
-      >
-        <a href="#" className="block text-gray-200 hover:text-blue-600">
-          Home
-        </a>
-        <a href="#" className="block text-gray-200 hover:text-blue-600">
-          About
-        </a>
-        <a href="#" className="block text-gray-200 hover:text-blue-600">
-          Services
-        </a>
-        <a href="#" className="block text-gray-200 hover:text-blue-600">
-          Contact
-        </a>
       </div>
     </nav>
   );
