@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import CodeBox from "../components/CodeBox";
 import Output from "../components/Output";
@@ -8,7 +8,24 @@ function Editor() {
   const [cssCode, setCssCode] = React.useState("");
   const [jsCode, setJsCode] = React.useState("");
 
+  const themeNames = [
+    "theme1",
+    "dracula",
+    "atomOneDark",
+    "tokyoNight",
+    "tokyoNightStorm",
+  ];
+
   const [theme, setTheme] = useState("theme1");
+
+  useEffect(() => {
+    const root = document.getElementById("root");
+
+    themeNames.map((themeName) => {
+      root.classList.remove(themeName);
+    });
+    root.classList.add(theme);
+  }, [theme]);
 
   return (
     <div>
