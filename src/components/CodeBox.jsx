@@ -147,8 +147,8 @@ function CodeBox(props) {
   }
 
   return (
-    <div className="w-1/3 h-1/2 bg-gray-700 shadow-lg py-4 px-2 overflow-y-auto">
-      <div className="title-box bg-gray-800 p-3 shadow-md w-min border-b border-gray-500">
+    <div className="w-1/3 h-1/2 bg-[var(--inactive-bg)] shadow-lg py-4 px-2 overflow-y-auto">
+      <div className="title-box bg-[var(--active-bg)] p-3 shadow-md w-min border-b border-gray-500">
         <span className="text-lg" style={{ color: props.color }}>
           {" "}
           {props.lang}{" "}

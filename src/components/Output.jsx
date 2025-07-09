@@ -52,11 +52,11 @@ function Output({ html, css, js }) {
 
   return (
     <div>
-      <div className="w-full h-1/2 border-0 bg-gray-700 border-gray-500 p-2 flex justify-between items-center">
-        <div className="textBox bg-gray-800 p-3 border-b border-gray-500 shadow-md w-min">
+      <div className="w-full h-1/2 border-0 bg-[var(--inactive-bg)] border-gray-500 p-2 flex justify-between items-center">
+        <div className="textBox bg-[var(--active-bg)] p-3 border-b border-gray-500 shadow-md w-min">
           <span className=" text-lg text-white">Output</span>
         </div>
-        <div className="open-in-new bg-red-500 p-2 hover:bg-red-600 text-white hover:text-gray-200">
+        <div className="open-in-new bg-[var(--primary-color)] p-2 hover:bg-red-600 text-white hover:text-gray-200">
           {" "}
           <button className="" onClick={openInNewTab}>
             Open in new Tab

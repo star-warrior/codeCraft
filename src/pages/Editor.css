@@ -1,0 +1,46 @@
+:root {
+  --bg-color: #282c34;
+  --color: #abb2bf;
+  --primary-color: #528bff;
+  --active-bg: #282c34; /* Active title bar background */
+  --inactive-bg: #21252b; /* Inactive title bar background */
+}
+.theme1 {
+  --bg-color: #282c34;
+  --color: #abb2bf;
+  --primary-color: #528bff; /* activityBarBadge.background */
+  --active-bg: #282c34; /* Active title bar background */
+  --inactive-bg: #21252b; /* Inactive title bar background */
+}
+
+.dracula {
+  --bg-color: #282a36;
+  --color: #f8f8f2;
+  --primary-color: #ff79c6; /* activityBarBadge.background */
+  --active-bg: #282a36;
+  --inactive-bg: #21222c;
+}
+
+.atomOneDark {
+  --bg-color: #282c34;
+  --color: #abb2bf;
+  --primary-color: #528bff; /* activityBarBadge.background */
+  --active-bg: #282c34;
+  --inactive-bg: #21252b;
+}
+
+.tokyoNight {
+  --bg-color: #1a1b26;
+  --color: #c0caf5;
+  --primary-color: #7aa2f7; /* activityBarBadge.background */
+  --active-bg: #1a1b26;
+  --inactive-bg: #16161e;
+}
+
+.tokyoNightStorm {
+  --bg-color: #24283b;
+  --color: #c0caf5;
+  --primary-color: #7aa2f7; /* activityBarBadge.background */
+  --active-bg: #24283b;
+  --inactive-bg: #1a1b26;
+}
